@@ -1,6 +1,12 @@
 # Compiled class file
 *.class
 
+.classpath
+.idea/
+.project
+.settings/
+MavenProject/
+
 # Log file
 *.log
 

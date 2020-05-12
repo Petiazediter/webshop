@@ -1,6 +1,7 @@
 package com.codecool.shop.dao.implementation;
 
 
+import com.codecool.shop.SQLConnection;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.model.ProductCategory;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 public class ProductCategoryDaoMem implements ProductCategoryDao {
 
+
     private List<ProductCategory> data = new ArrayList<>();
     private static ProductCategoryDaoMem instance = null;
 
@@ -16,6 +18,8 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
      */
     private ProductCategoryDaoMem() {
     }
+
+
 
     public static ProductCategoryDaoMem getInstance() {
         if (instance == null) {
@@ -26,7 +30,7 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
 
     @Override
     public void add(ProductCategory category) {
-        category.setId(data.size() + 1);
+       // category.setId(data.size() + 1);
         data.add(category);
     }
 

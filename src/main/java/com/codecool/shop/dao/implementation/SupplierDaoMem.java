@@ -1,5 +1,6 @@
 package com.codecool.shop.dao.implementation;
 
+import com.codecool.shop.SQLConnection;
 import com.codecool.shop.dao.SupplierDao;
 import com.codecool.shop.model.Supplier;
 
@@ -16,6 +17,8 @@ public class SupplierDaoMem implements SupplierDao {
     private SupplierDaoMem() {
     }
 
+
+
     public static SupplierDaoMem getInstance() {
         if (instance == null) {
             instance = new SupplierDaoMem();
@@ -25,7 +28,7 @@ public class SupplierDaoMem implements SupplierDao {
 
     @Override
     public void add(Supplier supplier) {
-        supplier.setId(data.size() + 1);
+       // supplier.setId(data.size() + 1);
         data.add(supplier);
     }
 

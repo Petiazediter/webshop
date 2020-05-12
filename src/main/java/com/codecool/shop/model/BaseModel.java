@@ -1,6 +1,8 @@
 package com.codecool.shop.model;
 
 
+import org.postgresql.ds.PGSimpleDataSource;
+
 import java.lang.reflect.Field;
 
 public class BaseModel {
@@ -8,6 +10,16 @@ public class BaseModel {
     protected int id;
     protected String name;
     protected String description;
+
+    public void setImageLink(String imageLink) {
+        this.imageLink = imageLink;
+    }
+
+    public String getImageLink() {
+        return imageLink;
+    }
+
+    protected String imageLink;
 
     public BaseModel(String name) {
         this.name = name;
