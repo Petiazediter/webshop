@@ -1,8 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body{
     background-color: #ededed;
-    margin: 0px;
-    margin-top: 0px;
     width: 100%;
     overflow-style: marquee-block;
     height: 100%;
@@ -18,10 +21,29 @@ body{
     margin-bottom: 1%;
     width: 100%;
     color:black;
-    background-color: white;
+    background-color: #fafafa;
     font-family: MyFont;
     height: 100%;
 }
+
+.loginDiv {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+.loginButton,
+.registerButton {
+    cursor: pointer;
+}
+
+.form-container {
+    text-align: center;
+}
+
 
 .loginInput{
     font-family: MyFont;
@@ -95,6 +117,10 @@ td{
 a.black{
     color: black;
     text-transform: capitalize;
+}
+
+.black {
+    cursor: pointer;
 }
 
 .headerTable{
