@@ -11,9 +11,9 @@ public class SQLConnection {
 
     private SQLConnection() throws SQLException {
         sql = new PGSimpleDataSource();
-        sql.setDatabaseName("codecoolshop");
-        sql.setUser("peti");
-        sql.setPassword("peter133");
+        sql.setDatabaseName(System.getenv("PSQL_DB_NAME"));
+        sql.setUser(System.getenv("PSQL_USER_NAME"));
+        sql.setPassword(System.getenv("PSQL_PASSWORD"));
         sql.getConnection().close();
     }
 
