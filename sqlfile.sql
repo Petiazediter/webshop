@@ -38,28 +38,24 @@ SET default_with_oids = false;
 -- Name: cart; Type: TABLE; Schema: public; Owner: peti
 --
 
+DROP TABLE IF EXISTS public.cart;
 CREATE TABLE public.cart (
     user_id integer,
     product_id integer,
     quantity integer
 );
 
-
-ALTER TABLE public.cart OWNER TO peti;
-
 --
 -- Name: categories; Type: TABLE; Schema: public; Owner: peti
 --
 
+DROP TABLE IF EXISTS public.categories;
 CREATE TABLE public.categories (
     id integer NOT NULL,
     name character varying,
     description character varying,
     department character varying
 );
-
-
-ALTER TABLE public.categories OWNER TO peti;
 
 --
 -- Name: categories_id_seq; Type: SEQUENCE; Schema: public; Owner: peti
@@ -73,9 +69,6 @@ CREATE SEQUENCE public.categories_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE public.categories_id_seq OWNER TO peti;
-
 --
 -- Name: categories_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peti
 --
@@ -87,6 +80,7 @@ ALTER SEQUENCE public.categories_id_seq OWNED BY public.categories.id;
 -- Name: products; Type: TABLE; Schema: public; Owner: peti
 --
 
+DROP TABLE IF EXISTS public.products;
 CREATE TABLE public.products (
     id integer NOT NULL,
     name character varying NOT NULL,
@@ -95,9 +89,6 @@ CREATE TABLE public.products (
     supplier integer,
     category integer
 );
-
-
-ALTER TABLE public.products OWNER TO peti;
 
 --
 -- Name: products_id_seq; Type: SEQUENCE; Schema: public; Owner: peti
@@ -111,9 +102,6 @@ CREATE SEQUENCE public.products_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE public.products_id_seq OWNER TO peti;
-
 --
 -- Name: products_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peti
 --
@@ -125,6 +113,7 @@ ALTER SEQUENCE public.products_id_seq OWNED BY public.products.id;
 -- Name: suppliers; Type: TABLE; Schema: public; Owner: peti
 --
 
+DROP TABLE IF EXISTS public.suppliers;
 CREATE TABLE public.suppliers (
     id integer NOT NULL,
     name character varying,
@@ -132,8 +121,6 @@ CREATE TABLE public.suppliers (
     image character varying DEFAULT 'https://4.bp.blogspot.com/-9S0RNpv8Ovw/V8GaOeuykDI/AAAAAAAABaA/MYN8GHVWgH4CQJfPTuQfuaJDIcLgr2oRgCLcB/s1600/GTA%2BSan%2BAndreas%2Bgame.png'::character varying
 );
 
-
-ALTER TABLE public.suppliers OWNER TO peti;
 
 --
 -- Name: suppliers_id_seq; Type: SEQUENCE; Schema: public; Owner: peti
@@ -148,8 +135,6 @@ CREATE SEQUENCE public.suppliers_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.suppliers_id_seq OWNER TO peti;
-
 --
 -- Name: suppliers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peti
 --
@@ -161,6 +146,7 @@ ALTER SEQUENCE public.suppliers_id_seq OWNED BY public.suppliers.id;
 -- Name: users; Type: TABLE; Schema: public; Owner: peti
 --
 
+DROP TABLE public.users;
 CREATE TABLE public.users (
     id integer NOT NULL,
     username character varying,
@@ -168,9 +154,6 @@ CREATE TABLE public.users (
     adminlevel integer DEFAULT 0,
     email character varying
 );
-
-
-ALTER TABLE public.users OWNER TO peti;
 
 --
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: peti
@@ -184,8 +167,6 @@ CREATE SEQUENCE public.users_id_seq
     NO MAXVALUE
     CACHE 1;
 
-
-ALTER TABLE public.users_id_seq OWNER TO peti;
 
 --
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: peti
@@ -226,58 +207,55 @@ ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_
 -- Data for Name: cart; Type: TABLE DATA; Schema: public; Owner: peti
 --
 
-COPY public.cart (user_id, product_id, quantity) FROM stdin;
-2	10	1
-2	4	2
-\.
+INSERT INTO public.cart (user_id, product_id, quantity) VALUES
+(2,	10,	1),
+(2,	4,	2);
+
 
 
 --
 -- Data for Name: categories; Type: TABLE DATA; Schema: public; Owner: peti
 --
 
-COPY public.categories (id, name, description, department) FROM stdin;
-1	Tablet	A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.	Hardware
-3	Large Meal	Large meal for real fat guys.	Food
-2	Salad	Foods from salad.	Salad
-\.
+INSERT INTO public.categories (id, name, description, department) VALUES
+(1,	'Large Meal','Large meal for real fat guys.','Food'),
+(2,	'Salad','Foods from salad.','Salad');
+
 
 
 --
 -- Data for Name: products; Type: TABLE DATA; Schema: public; Owner: peti
 --
 
-COPY public.products (id, name, description, price, supplier, category) FROM stdin;
-4	Moo Kids Meal	Its a cheeseburger but smaller than usual.	2	2	1
-6	Meat Stack	Its a hamburger with double meat.	10	2	1
-1	Huge	Huge pizza with lot of meat.	2	1	1
-2	Double Deluxe	If you love cheese you will love double deluxe	5	1	1
-3	Full size	Its a 32cm pizza with a lot of cheese and meat.	10	1	1
-8	Beef Tower	Eat this hamburger if dont care about your health.	6	2	1
-10	Salad Meal	Its salad.	6	2	2
-\.
+INSERT INTO public.products (id, name, description, price, supplier, category) VALUES
+(4,	'Moo Kids Meal',	'Its a cheeseburger but smaller than usual.',	2,	2,	1),
+(6,	'Meat Stack',	'Its a hamburger with double meat.',	10,	2,	1),
+(1,	'Huge',	'Huge pizza with lot of meat.',	2,	1,	1),
+(2,	'Double Deluxe',	'If you love cheese you will love double deluxe',	5,	1,	1),
+(3,	'Full size',	'Its a 32cm pizza with a lot of cheese and meat.',	10,	1,	1),
+(8,	'Beef Tower',	'Eat this hamburger if dont care about your health.',	6,	2,	1),
+(10,	'Salad Meal',	'Its salad.',	6,	2,	2);
 
 
 --
 -- Data for Name: suppliers; Type: TABLE DATA; Schema: public; Owner: peti
 --
 
-COPY public.suppliers (id, name, description, image) FROM stdin;
-1	The Well Stacked Pizza Co.	The best pizza in the whole world	https://files.prineside.com/gtasa_samp_game_texture//png/gb_kitchtake.GB_takeaway01.png
-2	Burger Shot	The best burgers in the town.	https://files.prineside.com/gtasa_samp_game_texture//png/gb_kitchtake.CJ_BS_MENU4.png
-3	Cluckin Bell	Everything from chicken	https://i.pinimg.com/originals/0a/d6/e2/0ad6e2f8637a437ffcbb089b3a50e59c.jpg
-4	Jims Sticky Ring	Sweet food for fatties.	https://lh3.googleusercontent.com/proxy/yPtbcDtsRjDa2m2wLNX0UYYo3ADckIz-JJMrNGZ3M65cyJhIB7A5ZXuir6zayicx-u5AIWpbMIP5KxLSxqEJm2W7jtg
-\.
+INSERT INTO public.suppliers (id, name, description, image) VALUES
+(1,	'The Well Stacked Pizza Co.',	'The best pizza in the whole world',	'https://files.prineside.com/gtasa_samp_game_texture//png/gb_kitchtake.GB_takeaway01.png'),
+(2,	'Burger Shot',	'The best burgers in the town.',	'https://files.prineside.com/gtasa_samp_game_texture//png/gb_kitchtake.CJ_BS_MENU4.png'),
+(3,	'Cluckin Bell',	'Everything from chicken',	'https://i.pinimg.com/originals/0a/d6/e2/0ad6e2f8637a437ffcbb089b3a50e59c.jpg'),
+(4,	'Jims Sticky Ring',	'Sweet food for fatties.',	'https://lh3.googleusercontent.com/proxy/yPtbcDtsRjDa2m2wLNX0UYYo3ADckIz-JJMrNGZ3M65cyJhIB7A5ZXuir6zayicx-u5AIWpbMIP5KxLSxqEJm2W7jtg');
+
 
 
 --
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: peti
 --
 
-COPY public.users (id, username, password, adminlevel, email) FROM stdin;
-1	null	7815696ecbf1c96e6894b779456d330e	0	\N
-2	verebes122	ba3f5d84f6691f1b14a67223d58fa982	0	pverebes74@gmail.com
-\.
+INSERT INTO public.users (id, username, password, adminlevel, email) VALUES
+(1,	null,	'7815696ecbf1c96e6894b779456d330e',	0,	'\N'),
+(2,	'verebes122',	'ba3f5d84f6691f1b14a67223d58fa982',	0,	'pverebes74@gmail.com');
 
 
 --
