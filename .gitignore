@@ -6,6 +6,7 @@
 .project
 .settings/
 MavenProject/
+target/
 
 # Log file
 *.log
