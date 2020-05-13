@@ -157,3 +157,30 @@ button:active{
     width: 65%;
     margin: auto;
 }
+
+.product-card {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#product-section {
+    background-color: blue;
+}
+
+.product-text {
+    color: #fafafa;
+    font-size: 2rem;
+    text-shadow: 0 2px 2px #222222;
+    text-align: center;
+}
+
+.product-text h2{
+    padding-bottom: 10%;
+    font-size: 3.8rem;
+}
+
+.product-card img {
+    height: 35rem;
+    width: 40rem;
+}
