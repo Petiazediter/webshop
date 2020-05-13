@@ -174,10 +174,11 @@ button:active{
 
 #product-section:nth-child(odd) .product-text {
     color: #222222;
-    text-shadow: 0 2px 2px #333333;
+    text-shadow: 0 2px 2px silver;
 }
 
 .product-text {
+    font-family: 'Poppins', sans-serif;
     color: #fafafa;
     font-size: 2rem;
     text-shadow: 0 2px 2px #222222;
@@ -187,6 +188,7 @@ button:active{
 .product-text h2{
     padding-bottom: 10%;
     font-size: 3.8rem;
+    text-transform: uppercase;
 }
 
 .product-card img {
