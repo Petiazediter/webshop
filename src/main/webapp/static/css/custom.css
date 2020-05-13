@@ -119,7 +119,8 @@ button:active{
 }
 
 .section-first {
-    background-image: url(https://i.imgur.com/Ew3rg.jpg);
+    background-color: #4471FF;
+    background-image: url("/static/img/s1.jpg");
     background-size: cover;
     background-position-x: 60%;
     background-position-y: 40%;
@@ -183,6 +184,7 @@ button:active{
     font-size: 2rem;
     text-shadow: 0 2px 2px #222222;
     text-align: center;
+    margin-top: -10%;
 }
 
 .product-text h2{
