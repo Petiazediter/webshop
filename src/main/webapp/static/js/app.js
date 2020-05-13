@@ -1,3 +1,11 @@
+new fullpage('#fullpage', {
+    autoScrolling: true,
+    navigation: true
+});
+
+const navRight = document.querySelector('#fp-nav');
+console.log(navRight.children)
+
 let buttons = document.querySelectorAll(".cartButton");
 
 

@@ -7,12 +7,15 @@
 
     <title>Los Santos Food Delivery</title>
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
-
+    <!-- fullpage.js -->
+    <script src="/static/js/fullpage.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/fullpage.min.css" />
+    <!---->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script src="static/css/javascript.js" defer type="text/javascript"></script>
+    <script src="static/js/app.js" defer type="text/javascript"></script>
 </head>
 
 <body>
@@ -29,68 +32,75 @@
         </table>
     </div>
 
-    <div id="bgImage"></div>
-    <div id="home">
-        <div class="welcomeMessage">
-            Welcome to our page! Fill your basket with the most delicious food and leave it to us to prepare and deliver.
-        </div>
-    </div>
+    <div id="fullpage">
+        <section class="fp-section section-first">
+            <div id="bgImage"></div>
+            <div id="home">
+                <div class="welcomeMessage">
+                    <p>Welcome to our page</p>
+                    <p>Fill your basket with the most delicious food and leave it to us to prepare and deliver.</p>
+                </div>
+            </div>
+        </section>
 
-    <div class="contentClass" th:each="product, iStat : ${products}">
-        <div class="page" th:if="${iStat.odd}">
-            <table class="page-table">
-                <tr>
-                    <td>
-                        <div class="page-img page-left">
-                            <img class="productClass" th:attr="src='/static/img/product-'+${product.id} +'.png'">
-                        </div>
-                    </td>
-                    <td th:class="${iStat.odd}? 'page-right' : 'page-left'">
-                        <div class="page-title" th:class="${iStat.odd}? 'page-right' : 'page-left'">
-                            <h1 th:text="${product.name}">Hamburger</h1>
-                        </div>
-                        <div class="page-description" th:class="${iStat.odd}? 'page-right' : 'page-left'">
-                            <p th:text="${product.description}">Fincsi hambi de ez a szöveg gecihosszú </p>
-                            <p th:text="${product.getSupplier().name}"></p>
-                        </div>
-                        <div class="page-price" th:class="${iStat.odd}? 'page-right' : 'page-left'">
-                            <button class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
+        <section class="fp-section" th:each="product, iStat : ${products}">
+            <div class="page" th:if="${iStat.odd}">
+                <table class="page-table">
+                    <tr>
+                        <td>
+                            <div class="page-img page-left">
+                                <img class="productClass" th:attr="src='/static/img/product-'+${product.id} +'.png'">
+                            </div>
+                        </td>
+                        <td th:class="${iStat.odd}? 'page-right' : 'page-left'">
+                            <div class="page-title" th:class="${iStat.odd}? 'page-right' : 'page-left'">
+                                <h1 th:text="${product.name}">Hamburger</h1>
+                            </div>
+                            <div class="page-description" th:class="${iStat.odd}? 'page-right' : 'page-left'">
+                                <p th:text="${product.description}">Fincsi hambi de ez a szöveg gecihosszú </p>
+                                <p th:text="${product.getSupplier().name}"></p>
+                            </div>
+                            <div class="page-price" th:class="${iStat.odd}? 'page-right' : 'page-left'">
+                                <button class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 
-        <div class="page" th:if="${iStat.even}">
-            <table class="page-table">
-                <tr>
-                    <td>
-                        <div class="page-title page-left">
-                            <h1 th:text="${product.name}">Hamburger</h1>
-                        </div>
-                        <div class="page-description page-left">
-                            <p th:text="${product.description}">Fincsi hambi de ez a szöveg gecihosszú </p>
-                            <p th:text="${product.getSupplier().name}"></p>
-                        </div>
-                        <div class="page-price page-left">
-                            <button class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="page-img page-right">
-                            <img class="productClass" th:attr="src='/static/img/product-'+${product.id} +'.png'">
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div id="contact">
-        If there's any human meat in your meal, please try to reach our customer service.
-        <ul class="nicefont">
-            <li>+36720001211</li>
-            <li>lossantosfood@info.org</li>
-        </ul>
+            <div class="page" th:if="${iStat.even}">
+                <table class="page-table">
+                    <tr>
+                        <td>
+                            <div class="page-title page-left">
+                                <h1 th:text="${product.name}">Hamburger</h1>
+                            </div>
+                            <div class="page-description page-left">
+                                <p th:text="${product.description}">Fincsi hambi de ez a szöveg gecihosszú </p>
+                                <p th:text="${product.getSupplier().name}"></p>
+                            </div>
+                            <div class="page-price page-left">
+                                <button class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="page-img page-right">
+                                <img class="productClass" th:attr="src='/static/img/product-'+${product.id} +'.png'">
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+        <section class="fp-section section-last">
+            <div id="contact">
+                If there's any human meat in your meal, please try to reach our customer service.
+                <ul class="nicefont">
+                    <li>+36720001211</li>
+                    <li>lossantosfood@info.org</li>
+                </ul>
+            </div>
+        </section>
     </div>
 
 
