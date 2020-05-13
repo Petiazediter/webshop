@@ -143,7 +143,7 @@ button:active{
 .welcomeMessage p:first-child {
     text-align: center;
     margin-top: 5rem;
-    margin-bottom: 10rem;
+    margin-bottom: 15%;
     text-shadow: 0 2px 2px #222222;
     font-size: 3.8rem;
     text-transform: uppercase;
