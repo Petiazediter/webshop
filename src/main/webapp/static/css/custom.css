@@ -219,3 +219,19 @@ button:active{
     color: #222222;
     border: 2px solid #222222;
 }
+
+
+#contact {
+    background-color: #ededed;
+    text-align: center;
+    color: #222222;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    text-shadow: 0 2px 2px silver;
+    font-size: 1.5rem;
+}
+
+.contact-text ul {
+    margin: 2.5%;
+    list-style: none;
+}
