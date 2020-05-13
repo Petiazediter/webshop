@@ -51,6 +51,7 @@
                     <div class="product-text">
                         <h2 th:text="${product.name}"></h2>
                         <p th:text="${product.description}"></p>
+                        <button id="add-btn-1" class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
                     </div>
                     <img th:attr="src='/static/img/product-'+${product.id} +'.png'" alt="">
                 </div>
@@ -62,6 +63,7 @@
                     <div class="product-text">
                         <h2 th:text="${product.name}"></h2>
                         <p th:text="${product.description}"></p>
+                        <button id="add-btn-2" class="btn btn-success cartButton" th:attr="data-id = ${product.id}" th:text="${product.price}" type="submit">$2.00</button>
                     </div>
                 </div>
             </div>

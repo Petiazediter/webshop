@@ -197,3 +197,25 @@ button:active{
     height: 25rem;
     width: 30rem;
 }
+
+#add-btn-1, #add-btn-2 {
+    margin-top: 5%;
+    height: 4rem;
+    width: 15rem;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border-radius: 0;
+    border: 2px solid #fafafa;
+    color: #fafafa;
+}
+
+#add-btn-1, #add-btn-2:focus {
+    transform: scale(.97);
+}
+
+#product-section:nth-child(odd) .product-text > #add-btn-1, #add-btn-2 {
+    color: #222222;
+    border: 2px solid #222222;
+}
