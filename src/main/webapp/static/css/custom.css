@@ -164,8 +164,17 @@ button:active{
     align-items: center;
 }
 
-#product-section {
-    background-color: blue;
+#product-section:nth-child(even) {
+    background-color: #e3492d;
+}
+
+#product-section:nth-child(odd) {
+    background-color: #ededed;
+}
+
+#product-section:nth-child(odd) .product-text {
+    color: #222222;
+    text-shadow: 0 2px 2px #333333;
 }
 
 .product-text {
