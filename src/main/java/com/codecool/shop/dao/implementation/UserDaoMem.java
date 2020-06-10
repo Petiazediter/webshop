@@ -35,8 +35,8 @@ public class UserDaoMem implements UserDao {
     }
 
     @Override
-    public void remove(User user) {
-
+    public void remove(int userId) {
+        data.remove(find(userId));
     }
 
     @Override

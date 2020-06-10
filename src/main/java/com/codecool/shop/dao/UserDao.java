@@ -8,7 +8,7 @@ import java.util.UUID;
 public interface UserDao {
     void add(User user);
     User find(int userId);
-    void remove(User user);
+    void remove(int userId);
 
     List<User> getAll();
 }
