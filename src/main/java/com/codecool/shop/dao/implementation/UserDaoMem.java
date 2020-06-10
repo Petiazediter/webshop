@@ -31,7 +31,7 @@ public class UserDaoMem implements UserDao {
 
     @Override
     public User find(int userId) {
-        return null;
+        return data.stream().filter(t -> t.getUserId() == userId).findFirst().orElse(null);
     }
 
     @Override
