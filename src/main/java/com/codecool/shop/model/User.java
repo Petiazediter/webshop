@@ -3,7 +3,7 @@ package com.codecool.shop.model;
 import java.util.UUID;
 
 public class User {
-    private UUID userId = UUID.randomUUID();
+    private int userId;
     private String name;
     private String password;
     private String email;
@@ -14,11 +14,11 @@ public class User {
         this.email = email;
     }
 
-    public UUID getUserId() {
+    public int getUserId() {
         return userId;
     }
 
-    public void setUserId(UUID userId) {
+    public void setUserId(int userId) {
         this.userId = userId;
     }
 
