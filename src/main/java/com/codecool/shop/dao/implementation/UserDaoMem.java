@@ -41,6 +41,6 @@ public class UserDaoMem implements UserDao {
 
     @Override
     public List<User> getAll() {
-        return null;
+        return data;
     }
 }

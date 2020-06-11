@@ -81,7 +81,7 @@
 
 
     <div class="modal fade" id="cartModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalCenterTitle">Your Cart</h5>
@@ -107,6 +107,7 @@
                                     <th:block th:with="variable = ${cartProduct.getKey().getDefaultPrice() * cartProduct.getValue()}">
                                         <td style="text-align: right" th:attr="id='price-'+${cartProduct.getKey().getId()}" class="tperc" th:text="'$'+${variable}"></td>
                                     </th:block>
+                                    <td> </td>
                                     <td><button th:attr="data-id=${cartProduct.getKey().getId()}" class="btn btn-success cart-btn-plus">+</button></td>
                                     <td><button th:attr="data-id=${cartProduct.getKey().getId()}" class="btn btn-info cart-btn-">-</button></td>
                                     <td><button th:attr="data-id=${cartProduct.getKey().getId()}" class="btn btn-danger cart-btn-remove">Remove</button></td>
